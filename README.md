@@ -33,13 +33,13 @@ https://asyty.iteye.com/blog/1202072
 
 我们用9042，需要暴露出，当然用到thrift也可以提前暴露出来
 
-```docker run --name my-cassandra -d -p 9160:9160 -p 9042:9042 cassandra:3```
+```docker run --name my-cassandra -d -p 9160:9160 -p 9042:9042 cassandra:2```
 
 如果想在容器中访问 cqlsh
 
 ```docker exec -it my-cassandra bash```
 
-```cqlsh```
+```cqlsh -u cassandra -p cassandra```
 
 先建一个keyspace(相当于建库)
 
