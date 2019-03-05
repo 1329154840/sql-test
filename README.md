@@ -41,9 +41,11 @@ https://asyty.iteye.com/blog/1202072
 
 ```cqlsh -u cassandra -p cassandra```
 
-先建一个keyspace(相当于建库)
+先建一个keyspace(相当于建库),使用该keyspace
 
 ```CREATE KEYSPACE test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};```
+
+```USE test;```
 
 建个表user id为主键 还有一个字段是name,一般都是用代码中生成的uuid来当做主键，没办法id自增
 
