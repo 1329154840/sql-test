@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.example.sqltest.model.Cuser;
 import com.example.sqltest.model.User;
 import com.example.sqltest.service.CuserService;
+import com.example.sqltest.service.NewCuserRepository;
 import com.example.sqltest.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,9 @@ public class Controller {
     @Autowired
     CuserService cuserService;
 
+    @Autowired
+    NewCuserRepository newCuserRepository;
+
     @RequestMapping("/createC")
     public String createC(@RequestParam("name") String name){
 
@@ -47,6 +51,11 @@ public class Controller {
     @RequestMapping("/getAllC")
     public String  getAllC(){
         return JSON.toJSONString(cuserService.getAll());
+    }
+
+    @RequestMapping("/getNewAllC")
+    public String  getNewAllC(){
+        return JSON.toJSONString(newCuserRepository.findAll());
     }
 
     @RequestMapping("/getUserName")

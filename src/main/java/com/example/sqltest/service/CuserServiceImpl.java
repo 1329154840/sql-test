@@ -1,5 +1,6 @@
 package com.example.sqltest.service;
 
+import com.datastax.driver.core.Session;
 import com.example.sqltest.model.Cuser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraTemplate;
@@ -23,6 +24,9 @@ import java.util.List;
 public class CuserServiceImpl implements CuserService{
     @Autowired
     private CassandraTemplate template;
+
+    @Autowired
+    private Session session;
 
     @Override
     public void create(Cuser cuser) {
